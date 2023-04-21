@@ -1,0 +1,38 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+env:
+  GITHUB_TOKEN: ${{ secrets.CLASH_TOKEN }}
+
+jobs:
+  create-release:
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v3
+          with:
+            fetch-depth: 0
+
+        - uses: actions/setup-node@v3
+          with:
+            node-version: 18.x
+
+        - name: build
+          run: |
+            tar -zcf clash-linux.gz src/
+
+        - name: Create Release
+          id: create_release
+          run: npx changelogithub
+
+        - name: Upload Release Asset
+          uses: softprops/action-gh-release@v1
+          with:
+            upload_url: ${{ steps.create_release.outputs.upload_url }}
+            files: |
+              clash-linux.gz
+            asset_name: clash-linux.gz
+            asset_content_type: application/gzip
