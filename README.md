@@ -34,13 +34,11 @@ $ cd clash-for-linux
 $ vim .env
 ```
 
-<br>
-
 ### 设置环境变量
 
 ```env
 # Clash 订阅地址
-export CLASH_URL=''
+export CLASH_URL='你的Clash订阅地址'
 export CLASH_SECRET=''
 ```
 
