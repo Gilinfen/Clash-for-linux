@@ -1,16 +1,16 @@
 FROM alpine:latest
 
-WORKDIR /app
+RUN apk update && apk add curl wget
 
-COPY ./src /app/
+WORKDIR /root
+
+COPY ./src /root
 
 EXPOSE 7890
 
-ENV CLASH_URL=${CLASH_URL}
+ENV CLASH_URL='https://sub-sg01.yunti.monster/link/I3wzgerHe6e6S2xP?clash=1&extend=1'
 ENV CLASH_SECRET=${CLASH_SECRET}
 
-RUN chmod +x ./start.sh ./restart.sh ./shutdown.sh ./entrypoint.sh
+RUN chmod +x /root/start.sh /root/restart.sh /root/shutdown.sh /root/entrypoint.sh
 
-ENTRYPOINT ["./entrypoint.sh"]
-
-CMD ["sh"]
+CMD ["/bin/sh", "-c", "cd /root && sh start.sh && sh entrypoint.sh && tail -f /dev/null"]

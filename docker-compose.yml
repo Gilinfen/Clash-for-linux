@@ -6,11 +6,11 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-      platforms:
-        - linux/amd64
+      # platforms:
+      #   - linux/amd64
     image: registry.cn-shanghai.aliyuncs.com/glinfen/proxy
-    env_file:
-      - .env
+    # env_file:
+    #   - .env
     environment:
       - HTTP_PROXY=http://proxy:7890
     ports:
