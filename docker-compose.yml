@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  proxy:
+    container_name: proxy
+    build:
+      context: .
+      dockerfile: Dockerfile
+      platforms:
+        - linux/amd64
+    image: registry.cn-shanghai.aliyuncs.com/glinfen/proxy
+    env_file:
+      - .env
+    environment:
+      - HTTP_PROXY=http://proxy:7890
+    ports:
+      - '7890:7890'
+    networks:
+      - glinfen_network
+
+# 定义一个允许容器通信的网络
+networks:
+  glinfen_network:
+    external: true

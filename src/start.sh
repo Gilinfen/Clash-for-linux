@@ -10,7 +10,7 @@ Server_Dir=$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)
 chmod +x $Server_Dir/bin/*
 
 # 加载.env变量文件
-source $Server_Dir/.env
+# source $Server_Dir/.env
 
 Conf_Dir="$Server_Dir/conf"
 Temp_Dir="$Server_Dir/temp"
