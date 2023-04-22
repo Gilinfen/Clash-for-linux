@@ -24,7 +24,7 @@
 ### 下载项目
 
 ```bash
-$ git clone https://github.com/wanhebin/clash-for-linux.git
+$ git clone https://github.com/Gilinfen/clash-for-linux.git
 ```
 
 进入到项目目录，编辑`.env`文件，修改变量`CLASH_URL`的值。
@@ -33,8 +33,6 @@ $ git clone https://github.com/wanhebin/clash-for-linux.git
 $ cd clash-for-linux
 $ vim .env
 ```
-
-> **注意：** `.env` 文件中的变量 `CLASH_SECRET` 为自定义 Clash Secret，值为空时，脚本将自动生成随机字符串。
 
 <br>
 
@@ -45,6 +43,8 @@ $ vim .env
 export CLASH_URL=''
 export CLASH_SECRET=''
 ```
+
+> **注意：** `.env` 文件中的变量 `CLASH_SECRET` 为自定义 Clash Secret，值为空时，脚本将自动生成随机字符串。
 
 ### 启动程序
 
