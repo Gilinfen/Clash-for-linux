@@ -68,7 +68,7 @@ Clash订阅地址可访问！                                      [  OK  ]
 正在启动Clash服务...
 服务启动成功！                                             [  OK  ]
 
-Clash Dashboard 访问地址：http://<ip>:9090/ui
+# Clash Dashboard 访问地址：http://<ip>:9090/ui
 Secret：xxxxxxxxxxxxx
 
 请执行以下命令加载环境变量: source /etc/profile.d/clash.sh
@@ -137,6 +137,14 @@ $ proxy_off
 ```
 
 然后检查程序端口、进程以及环境变量`http_proxy|https_proxy`，若都没则说明服务正常关闭。
+
+<br>
+
+### Docker 
+
+```sh
+docker compose build
+```
 
 <br>
 
